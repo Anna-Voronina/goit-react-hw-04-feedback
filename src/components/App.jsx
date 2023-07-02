@@ -20,16 +20,21 @@ export const App = () => {
   const feedbackOptions = { good, neutral, bad };
 
   const handleLeaveFeedback = feedbackOption => {
-    if (feedbackOption === FEEDBACK_TYPES.GOOD) {
-      setGood(prev => prev + 1);
-    }
+    switch (feedbackOption) {
+      case FEEDBACK_TYPES.GOOD:
+        setGood(prev => prev + 1);
+        break;
 
-    if (feedbackOption === FEEDBACK_TYPES.NEUTRAL) {
-      setNeutral(prev => prev + 1);
-    }
+      case FEEDBACK_TYPES.NEUTRAL:
+        setNeutral(prev => prev + 1);
+        break;
 
-    if (feedbackOption === FEEDBACK_TYPES.BAD) {
-      setBad(prev => prev + 1);
+      case FEEDBACK_TYPES.BAD:
+        setBad(prev => prev + 1);
+        break;
+
+      default:
+        break;
     }
 
     toast('Thank you for your feedback!');
